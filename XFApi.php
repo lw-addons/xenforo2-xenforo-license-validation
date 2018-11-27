@@ -58,14 +58,14 @@ class XFApi
 		try
 		{
 			$this->rawResponse = $this->httpClient->post(self::VALIDATION_URL, [
-				'body' => [
+				'form_params' => [
 					'token' => $this->token,
 					'domain' => $this->domain ?: ''
 				]
 			]);
 
 			$this->responseCode = $this->rawResponse->getStatusCode();
-			$this->responseJson = $this->rawResponse->json();
+			$this->responseJson = json_decode($this->rawResponse->getBody(), true);
 		} catch (ClientException $e)
 		{
 			$this->responseCode = $e->getCode();

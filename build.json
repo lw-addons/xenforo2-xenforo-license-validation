@@ -1,0 +1,5 @@
+{
+  "exec": [
+    "mv _build/upload/src/addons/LiamW/BirthYearPrivacyBypass/LICENSE _build/"
+  ]
+}
