@@ -55,17 +55,18 @@ class XFApi
 
 	public function validate()
 	{
+		$key = \XF::$versionId > 2010000 ? 'form_params' :  'body';
 		try
 		{
 			$this->rawResponse = $this->httpClient->post(self::VALIDATION_URL, [
-				'form_params' => [
+				$key => [
 					'token' => $this->token,
 					'domain' => $this->domain ?: ''
 				]
 			]);
 
 			$this->responseCode = $this->rawResponse->getStatusCode();
-			$this->responseJson = json_decode($this->rawResponse->getBody(), true);
+			$this->responseJson = \json_decode((string)$this->rawResponse->getBody(), true);
 		} catch (ClientException $e)
 		{
 			$this->responseCode = $e->getCode();
