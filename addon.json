@@ -9,11 +9,6 @@
   "faq_url": "",
   "support_url": "https://lw-addons.net/addons/LiamW-XenForoLicenseVerification",
   "extra_urls": [],
-  "require": {
-    "XF": [
-      2010000,
-      "XenForo 2.1.0 or above"
-    ]
-  },
+  "require": [],
   "icon": ""
 }
